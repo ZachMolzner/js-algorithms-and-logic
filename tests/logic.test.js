@@ -1,6 +1,7 @@
 const fizzBuzz = require('../src/logic/fizzbuzz');
 const gradeCalculator = require('../src/logic/grade-calculator');
 const isPrime = require('../src/logic/is-prime');
+const validParentheses = require('../src/logic/valid-parentheses');
 
 describe('Logic problems', () => {
   describe('fizzBuzz', () => {
@@ -32,6 +33,26 @@ describe('Logic problems', () => {
 
     test('returns false for values less than 2', () => {
       expect(isPrime(1)).toBe(false);
+    });
+  });
+
+  describe('validParentheses', () => {
+    test('returns true for balanced parentheses', () => {
+      expect(validParentheses('()[]{}')).toBe(true);
+      expect(validParentheses('{[()]}')).toBe(true);
+    });
+
+    test('returns false for unbalanced parentheses', () => {
+      expect(validParentheses('(]')).toBe(false);
+      expect(validParentheses('([)]')).toBe(false);
+    });
+
+    test('ignores non-bracket characters', () => {
+      expect(validParentheses('(a + b) * [c]')).toBe(true);
+    });
+
+    test('returns false for invalid input type', () => {
+      expect(validParentheses(123)).toBe(false);
     });
   });
 });

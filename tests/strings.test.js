@@ -2,6 +2,8 @@ const reverseString = require('../src/strings/reverse-string');
 const isPalindrome = require('../src/strings/palindrome');
 const countVowels = require('../src/strings/count-vowels');
 const firstNonRepeatingChar = require('../src/strings/first-non-repeating-char');
+const anagramChecker = require('../src/strings/anagram-checker');
+const longestSubstringWithoutRepeating = require('../src/strings/longest-substring-without-repeating');
 
 describe('String problems', () => {
   describe('reverseString', () => {
@@ -33,6 +35,37 @@ describe('String problems', () => {
 
     test('returns null when no unique character exists', () => {
       expect(firstNonRepeatingChar('aabbcc')).toBeNull();
+    });
+  });
+
+  describe('anagramChecker', () => {
+    test('returns true for matching anagrams', () => {
+      expect(anagramChecker('Listen', 'Silent')).toBe(true);
+      expect(anagramChecker('Dormitory', 'Dirty room')).toBe(true);
+    });
+
+    test('returns false for non-anagrams', () => {
+      expect(anagramChecker('hello', 'world')).toBe(false);
+    });
+
+    test('returns false for invalid input types', () => {
+      expect(anagramChecker('listen', null)).toBe(false);
+    });
+  });
+
+  describe('longestSubstringWithoutRepeating', () => {
+    test('returns longest unique-length substring size', () => {
+      expect(longestSubstringWithoutRepeating('abcabcbb')).toBe(3);
+      expect(longestSubstringWithoutRepeating('bbbbb')).toBe(1);
+      expect(longestSubstringWithoutRepeating('pwwkew')).toBe(3);
+    });
+
+    test('returns 0 for empty string', () => {
+      expect(longestSubstringWithoutRepeating('')).toBe(0);
+    });
+
+    test('returns null for invalid input', () => {
+      expect(longestSubstringWithoutRepeating(123)).toBeNull();
     });
   });
 });
