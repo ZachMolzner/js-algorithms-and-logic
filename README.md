@@ -1,139 +1,104 @@
 # JavaScript Algorithms and Logic
 
-A focused JavaScript practice repository for building clean problem-solving habits through beginner-to-intermediate, interview-style challenges.
+A portfolio-focused JavaScript repository that shows how I solve coding problems with clear logic, clean structure, and reliable tests.
 
-## Purpose
+## Why this project matters
 
-This repository demonstrates practical JavaScript fundamentals with readable solutions and straightforward logic. It is designed to show portfolio reviewers how I approach coding problems clearly, validate inputs, and organize solutions in a maintainable way.
+This project is designed for recruiter and hiring manager review. It highlights:
+- **Problem-solving skills:** breaking problems into simple, testable steps.
+- **Clean code practices:** readable naming, focused functions, and consistent structure.
+- **Testing mindset:** Jest coverage across arrays, strings, logic, objects, and recursion.
 
-## Topics Covered
+## Why I Built This
 
-- Arrays
-- Strings
-- Logic and conditionals
-- Objects
-- Recursion
-- Unit testing with Jest
+I built this project as a junior developer transitioning careers into software engineering. I wanted one place to prove that I can learn quickly, practice consistently, and write code that is easy for teams to read and maintain. Each problem is a small example of how I approach unfamiliar challenges: understand the requirement, write a clear solution, and verify behavior with tests.
 
-## Folder Structure Overview
-
-```text
-js-algorithms-and-logic/
-├── README.md
-├── package.json
-├── .gitignore
-├── src/
-│   ├── arrays/
-│   ├── strings/
-│   ├── logic/
-│   ├── objects/
-│   └── recursion/
-└── tests/
-```
-
-## Included Problems
+## Topics and problems
 
 ### Arrays
-- `two-sum.js`
-- `max-number.js`
-- `remove-duplicates.js`
-- `sum-array.js`
+- `two-sum`
+- `max-number`
+- `remove-duplicates`
+- `sum-array`
+- `binary-search`
+- `merge-intervals`
+- `find-missing-number`
+- `rotate-array`
 
 ### Strings
-- `reverse-string.js`
-- `palindrome.js`
-- `count-vowels.js`
-- `first-non-repeating-char.js`
+- `reverse-string`
+- `palindrome`
+- `count-vowels`
+- `first-non-repeating-char`
+- `anagram-checker`
+- `longest-substring-without-repeating`
 
 ### Logic
-- `fizzbuzz.js`
-- `grade-calculator.js`
-- `is-prime.js`
+- `fizzbuzz`
+- `grade-calculator`
+- `is-prime`
+- `valid-parentheses`
 
 ### Objects
-- `frequency-counter.js`
-- `group-by-property.js`
+- `frequency-counter`
+- `group-by-property`
 
 ### Recursion
-- `factorial.js`
-- `fibonacci.js`
+- `factorial`
+- `fibonacci`
+- `flatten-nested-array`
 
-## Example Usage
+```text
+src/
+  arrays/
+  strings/
+  logic/
+  objects/
+  recursion/
+tests/
+```
+
+## Quick start
+
+```bash
+npm install
+npm test
+```
+
+## How this supports interview preparation
+
+This repo gives me repeatable practice with common coding interview patterns (hash maps, two pointers, sliding windows, recursion, and stack-based validation). It also helps me explain tradeoffs clearly, which is just as important in interviews as getting the correct answer.
+
+## Example usage
 
 ```js
-const twoSum = require('./src/arrays/two-sum');
-console.log(twoSum([2, 7, 11, 15], 9));
-// [0, 1]
+const binarySearch = require('./src/arrays/binary-search');
+console.log(binarySearch([1, 3, 5, 7, 9], 7));
+// 3
 ```
 
 ```js
-const isPalindrome = require('./src/strings/palindrome');
-console.log(isPalindrome('A man, a plan, a canal: Panama!'));
+const anagramChecker = require('./src/strings/anagram-checker');
+console.log(anagramChecker('Listen', 'Silent'));
 // true
 ```
 
 ```js
-const fizzBuzz = require('./src/logic/fizzbuzz');
-console.log(fizzBuzz(5));
-// [1, 2, 'Fizz', 4, 'Buzz']
+const validParentheses = require('./src/logic/valid-parentheses');
+console.log(validParentheses('{[()]}'));
+// true
 ```
 
 ```js
-const groupByProperty = require('./src/objects/group-by-property');
-const users = [
-  { name: 'Ana', role: 'admin' },
-  { name: 'Bo', role: 'user' },
-  { name: 'Cal', role: 'admin' }
-];
-console.log(groupByProperty(users, 'role'));
-// { admin: [...], user: [...] }
+const flattenNestedArray = require('./src/recursion/flatten-nested-array');
+console.log(flattenNestedArray([1, [2, [3, 4], 5], 6]));
+// [1, 2, 3, 4, 5, 6]
 ```
-
-```js
-const fibonacci = require('./src/recursion/fibonacci');
-console.log(fibonacci(7));
-// 13
-```
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <your-repo-url>
-   cd js-algorithms-and-logic
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-## Run Tests
-
-```bash
-npm test
-```
-
-## Why I Built This
-
-I built this project to strengthen my JavaScript fundamentals, practice writing clear and reliable solutions, and present a portfolio-ready example of how I structure problem-solving code as a junior software engineer.
 
 ## Future Additions
 
-- Binary search (iterative and recursive)
-- Merge intervals
-- Anagram checker
-- Linked list basics (insert, delete, traverse)
-- Sliding window practice problems
-
-## Suggested Commit Sequence (From Scratch)
-
-1. `chore: initialize JavaScript repo with npm and base metadata`
-2. `chore: add project structure for src topics and tests`
-3. `feat(arrays): add two-sum, max-number, remove-duplicates, and sum-array`
-4. `feat(strings): add reverse-string, palindrome, count-vowels, and first-non-repeating-char`
-5. `feat(logic): add fizzbuzz, grade-calculator, and is-prime`
-6. `feat(objects): add frequency-counter and group-by-property`
-7. `feat(recursion): add factorial and fibonacci implementations`
-8. `test: add grouped Jest test suites for arrays, strings, logic, objects, and recursion`
-9. `docs: write polished README with setup steps, problem index, and usage examples`
-10. `chore: add gitignore and AGENTS instructions for future contributors`
+- Binary tree traversal practice (BFS and DFS)
+- Linked list basics (insert, delete, reverse)
+- Dynamic programming starter problems
+- More edge-case focused test scenarios
+- Time and space complexity notes for each solution

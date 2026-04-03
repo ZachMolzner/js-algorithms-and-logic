@@ -1,5 +1,6 @@
 const factorial = require('../src/recursion/factorial');
 const fibonacci = require('../src/recursion/fibonacci');
+const flattenNestedArray = require('../src/recursion/flatten-nested-array');
 
 describe('Recursion problems', () => {
   describe('factorial', () => {
@@ -22,6 +23,20 @@ describe('Recursion problems', () => {
 
     test('returns null for negative input', () => {
       expect(fibonacci(-5)).toBeNull();
+    });
+  });
+
+  describe('flattenNestedArray', () => {
+    test('flattens nested arrays recursively', () => {
+      expect(flattenNestedArray([1, [2, [3, 4], 5], 6])).toEqual([1, 2, 3, 4, 5, 6]);
+    });
+
+    test('returns empty array when input is empty', () => {
+      expect(flattenNestedArray([])).toEqual([]);
+    });
+
+    test('returns null for invalid input', () => {
+      expect(flattenNestedArray('not-array')).toBeNull();
     });
   });
 });

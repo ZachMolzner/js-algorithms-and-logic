@@ -2,6 +2,10 @@ const twoSum = require('../src/arrays/two-sum');
 const maxNumber = require('../src/arrays/max-number');
 const removeDuplicates = require('../src/arrays/remove-duplicates');
 const sumArray = require('../src/arrays/sum-array');
+const binarySearch = require('../src/arrays/binary-search');
+const mergeIntervals = require('../src/arrays/merge-intervals');
+const findMissingNumber = require('../src/arrays/find-missing-number');
+const rotateArray = require('../src/arrays/rotate-array');
 
 describe('Array problems', () => {
   describe('twoSum', () => {
@@ -49,6 +53,75 @@ describe('Array problems', () => {
 
     test('returns null when array contains non-number', () => {
       expect(sumArray([1, '2', 3])).toBeNull();
+    });
+  });
+
+  describe('binarySearch', () => {
+    test('returns index when target is found', () => {
+      expect(binarySearch([1, 3, 5, 7, 9], 7)).toBe(3);
+    });
+
+    test('returns -1 when target is missing', () => {
+      expect(binarySearch([2, 4, 6, 8], 5)).toBe(-1);
+    });
+
+    test('returns null when array is not sorted', () => {
+      expect(binarySearch([3, 1, 2], 2)).toBeNull();
+    });
+
+    test('returns null for invalid input', () => {
+      expect(binarySearch('not-array', 3)).toBeNull();
+    });
+  });
+
+  describe('mergeIntervals', () => {
+    test('merges overlapping ranges', () => {
+      expect(mergeIntervals([[1, 3], [2, 6], [8, 10], [15, 18]])).toEqual([
+        [1, 6],
+        [8, 10],
+        [15, 18]
+      ]);
+    });
+
+    test('normalizes intervals where start is greater than end', () => {
+      expect(mergeIntervals([[5, 1], [2, 3]])).toEqual([[1, 5]]);
+    });
+
+    test('returns null for invalid interval input', () => {
+      expect(mergeIntervals([[1, 2], [3]])).toBeNull();
+    });
+  });
+
+  describe('findMissingNumber', () => {
+    test('returns the missing value from 0 to n', () => {
+      expect(findMissingNumber([3, 0, 1])).toBe(2);
+      expect(findMissingNumber([0, 1])).toBe(2);
+    });
+
+    test('returns null when values are duplicated', () => {
+      expect(findMissingNumber([0, 1, 1])).toBeNull();
+    });
+
+    test('returns null for invalid input', () => {
+      expect(findMissingNumber([0, 1, 5])).toBeNull();
+    });
+  });
+
+  describe('rotateArray', () => {
+    test('rotates array to the right by k steps', () => {
+      expect(rotateArray([1, 2, 3, 4, 5], 2)).toEqual([4, 5, 1, 2, 3]);
+    });
+
+    test('supports negative rotation values', () => {
+      expect(rotateArray([1, 2, 3, 4], -1)).toEqual([2, 3, 4, 1]);
+    });
+
+    test('returns copied array when rotation is full length', () => {
+      expect(rotateArray([1, 2, 3], 3)).toEqual([1, 2, 3]);
+    });
+
+    test('returns null for invalid input', () => {
+      expect(rotateArray([1, 2, '3'], 1)).toBeNull();
     });
   });
 });
