@@ -1,0 +1,21 @@
+{
+  "name": "js-algorithms-and-logic",
+  "version": "1.0.0",
+  "description": "A JavaScript practice repository for algorithms, logic building, and interview-style problem solving.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "javascript",
+    "algorithms",
+    "logic",
+    "interview-prep",
+    "jest"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^30.0.0"
+  }
+}
