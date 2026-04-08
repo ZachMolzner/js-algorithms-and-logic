@@ -11,6 +11,10 @@ describe('Object problems', () => {
       });
     });
 
+    test('returns empty object for empty input', () => {
+      expect(frequencyCounter([])).toEqual({});
+    });
+
     test('returns null for invalid input', () => {
       expect(frequencyCounter('abc')).toBeNull();
     });
@@ -36,6 +40,15 @@ describe('Object problems', () => {
         x: [items[0]],
         undefined: [items[1]]
       });
+    });
+
+    test('returns empty object for empty array', () => {
+      expect(groupByProperty([], 'type')).toEqual({});
+    });
+
+    test('returns null for invalid input', () => {
+      expect(groupByProperty([{ id: 1 }], '')).toBeNull();
+      expect(groupByProperty([null], 'id')).toBeNull();
     });
   });
 });

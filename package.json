@@ -4,7 +4,8 @@
   "description": "A JavaScript practice repository for algorithms, logic building, and interview-style problem solving.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "javascript",

@@ -10,6 +10,11 @@ describe('String problems', () => {
     test('returns reversed value', () => {
       expect(reverseString('hello')).toBe('olleh');
     });
+
+    test('handles empty and invalid input', () => {
+      expect(reverseString('')).toBe('');
+      expect(reverseString(123)).toBeNull();
+    });
   });
 
   describe('isPalindrome', () => {
@@ -20,11 +25,21 @@ describe('String problems', () => {
     test('returns false when value is not a palindrome', () => {
       expect(isPalindrome('javascript')).toBe(false);
     });
+
+    test('handles empty and invalid input', () => {
+      expect(isPalindrome('')).toBe(true);
+      expect(isPalindrome(null)).toBe(false);
+    });
   });
 
   describe('countVowels', () => {
     test('counts vowels correctly', () => {
       expect(countVowels('Beautiful Day')).toBe(6);
+    });
+
+    test('returns 0 for empty string and null for invalid input', () => {
+      expect(countVowels('')).toBe(0);
+      expect(countVowels(42)).toBeNull();
     });
   });
 
@@ -35,6 +50,11 @@ describe('String problems', () => {
 
     test('returns null when no unique character exists', () => {
       expect(firstNonRepeatingChar('aabbcc')).toBeNull();
+    });
+
+    test('returns null for empty or invalid input', () => {
+      expect(firstNonRepeatingChar('')).toBeNull();
+      expect(firstNonRepeatingChar([])).toBeNull();
     });
   });
 
