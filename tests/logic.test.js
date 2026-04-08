@@ -11,6 +11,7 @@ describe('Logic problems', () => {
 
     test('returns null for invalid input', () => {
       expect(fizzBuzz(0)).toBeNull();
+      expect(fizzBuzz(2.5)).toBeNull();
     });
   });
 
@@ -18,10 +19,13 @@ describe('Logic problems', () => {
     test('maps score to letter grade', () => {
       expect(gradeCalculator(88)).toBe('B');
       expect(gradeCalculator(59)).toBe('F');
+      expect(gradeCalculator(90)).toBe('A');
     });
 
-    test('returns null for out-of-range score', () => {
+    test('returns null for out-of-range or invalid score', () => {
       expect(gradeCalculator(110)).toBeNull();
+      expect(gradeCalculator(-1)).toBeNull();
+      expect(gradeCalculator('80')).toBeNull();
     });
   });
 
@@ -31,8 +35,10 @@ describe('Logic problems', () => {
       expect(isPrime(21)).toBe(false);
     });
 
-    test('returns false for values less than 2', () => {
+    test('returns false for values less than 2 and invalid numbers', () => {
       expect(isPrime(1)).toBe(false);
+      expect(isPrime(-13)).toBe(false);
+      expect(isPrime(5.4)).toBe(false);
     });
   });
 
@@ -40,11 +46,13 @@ describe('Logic problems', () => {
     test('returns true for balanced parentheses', () => {
       expect(validParentheses('()[]{}')).toBe(true);
       expect(validParentheses('{[()]}')).toBe(true);
+      expect(validParentheses('')).toBe(true);
     });
 
     test('returns false for unbalanced parentheses', () => {
       expect(validParentheses('(]')).toBe(false);
       expect(validParentheses('([)]')).toBe(false);
+      expect(validParentheses('(((')).toBe(false);
     });
 
     test('ignores non-bracket characters', () => {

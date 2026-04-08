@@ -9,8 +9,9 @@ describe('Recursion problems', () => {
       expect(factorial(5)).toBe(120);
     });
 
-    test('returns null for negative input', () => {
+    test('returns null for invalid input', () => {
       expect(factorial(-1)).toBeNull();
+      expect(factorial(3.2)).toBeNull();
     });
   });
 
@@ -21,8 +22,9 @@ describe('Recursion problems', () => {
       expect(fibonacci(7)).toBe(13);
     });
 
-    test('returns null for negative input', () => {
+    test('returns null for invalid input', () => {
       expect(fibonacci(-5)).toBeNull();
+      expect(fibonacci('7')).toBeNull();
     });
   });
 
@@ -33,6 +35,10 @@ describe('Recursion problems', () => {
 
     test('returns empty array when input is empty', () => {
       expect(flattenNestedArray([])).toEqual([]);
+    });
+
+    test('handles already-flat arrays', () => {
+      expect(flattenNestedArray([1, 2, 3])).toEqual([1, 2, 3]);
     });
 
     test('returns null for invalid input', () => {
