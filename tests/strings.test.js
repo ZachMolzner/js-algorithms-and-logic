@@ -10,6 +10,11 @@ describe('String problems', () => {
     test('returns reversed value', () => {
       expect(reverseString('hello')).toBe('olleh');
     });
+
+    test('handles empty string and invalid input', () => {
+      expect(reverseString('')).toBe('');
+      expect(reverseString(10)).toBeNull();
+    });
   });
 
   describe('isPalindrome', () => {
@@ -20,11 +25,20 @@ describe('String problems', () => {
     test('returns false when value is not a palindrome', () => {
       expect(isPalindrome('javascript')).toBe(false);
     });
+
+    test('returns false for invalid input', () => {
+      expect(isPalindrome(null)).toBe(false);
+    });
   });
 
   describe('countVowels', () => {
     test('counts vowels correctly', () => {
       expect(countVowels('Beautiful Day')).toBe(6);
+    });
+
+    test('handles empty string and invalid input', () => {
+      expect(countVowels('')).toBe(0);
+      expect(countVowels([])).toBeNull();
     });
   });
 
@@ -35,6 +49,11 @@ describe('String problems', () => {
 
     test('returns null when no unique character exists', () => {
       expect(firstNonRepeatingChar('aabbcc')).toBeNull();
+    });
+
+    test('handles empty string and invalid input', () => {
+      expect(firstNonRepeatingChar('')).toBeNull();
+      expect(firstNonRepeatingChar(100)).toBeNull();
     });
   });
 
@@ -64,7 +83,8 @@ describe('String problems', () => {
       expect(longestSubstringWithoutRepeating('')).toBe(0);
     });
 
-    test('returns null for invalid input', () => {
+    test('handles duplicates and invalid input', () => {
+      expect(longestSubstringWithoutRepeating('aaaa')).toBe(1);
       expect(longestSubstringWithoutRepeating(123)).toBeNull();
     });
   });
