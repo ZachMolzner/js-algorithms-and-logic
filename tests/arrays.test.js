@@ -2,7 +2,7 @@ const twoSum = require('../src/arrays/two-sum');
 const maxNumber = require('../src/arrays/max-number');
 const removeDuplicates = require('../src/arrays/remove-duplicates');
 const sumArray = require('../src/arrays/sum-array');
-const binarySearch = require('../src/arrays/binary-search');
+const arrayBinarySearch = require('../src/arrays/binary-search');
 const mergeIntervals = require('../src/arrays/merge-intervals');
 const findMissingNumber = require('../src/arrays/find-missing-number');
 const rotateArray = require('../src/arrays/rotate-array');
@@ -13,12 +13,18 @@ describe('Array problems', () => {
       expect(twoSum([2, 7, 11, 15], 9)).toEqual([0, 1]);
     });
 
+    test('supports duplicate values', () => {
+      expect(twoSum([3, 3], 6)).toEqual([0, 1]);
+    });
+
     test('returns null when no solution exists', () => {
       expect(twoSum([1, 2, 3], 100)).toBeNull();
     });
 
-    test('returns null for invalid input', () => {
+    test('returns null for empty and invalid input', () => {
+      expect(twoSum([], 5)).toBeNull();
       expect(twoSum('not-an-array', 5)).toBeNull();
+      expect(twoSum([1, 2, 3], '9')).toBeNull();
     });
   });
 
@@ -30,11 +36,19 @@ describe('Array problems', () => {
     test('returns null for empty array', () => {
       expect(maxNumber([])).toBeNull();
     });
+
+    test('returns null for invalid element types', () => {
+      expect(maxNumber([1, '2', 3])).toBeNull();
+    });
   });
 
   describe('removeDuplicates', () => {
     test('returns a new array with duplicates removed', () => {
       expect(removeDuplicates([1, 1, 2, 3, 3, 4])).toEqual([1, 2, 3, 4]);
+    });
+
+    test('returns empty array for empty input', () => {
+      expect(removeDuplicates([])).toEqual([]);
     });
 
     test('returns null for invalid input', () => {
@@ -56,21 +70,23 @@ describe('Array problems', () => {
     });
   });
 
-  describe('binarySearch', () => {
+  describe('arrayBinarySearch', () => {
     test('returns index when target is found', () => {
-      expect(binarySearch([1, 3, 5, 7, 9], 7)).toBe(3);
+      expect(arrayBinarySearch([1, 3, 5, 7, 9], 7)).toBe(3);
     });
 
-    test('returns -1 when target is missing', () => {
-      expect(binarySearch([2, 4, 6, 8], 5)).toBe(-1);
+    test('returns -1 when target is missing or array is empty', () => {
+      expect(arrayBinarySearch([2, 4, 6, 8], 5)).toBe(-1);
+      expect(arrayBinarySearch([], 1)).toBe(-1);
     });
 
     test('returns null when array is not sorted', () => {
-      expect(binarySearch([3, 1, 2], 2)).toBeNull();
+      expect(arrayBinarySearch([3, 1, 2], 2)).toBeNull();
     });
 
     test('returns null for invalid input', () => {
-      expect(binarySearch('not-array', 3)).toBeNull();
+      expect(arrayBinarySearch('not-array', 3)).toBeNull();
+      expect(arrayBinarySearch([1, 2, '3'], 3)).toBeNull();
     });
   });
 
@@ -87,8 +103,13 @@ describe('Array problems', () => {
       expect(mergeIntervals([[5, 1], [2, 3]])).toEqual([[1, 5]]);
     });
 
+    test('returns empty array for empty input', () => {
+      expect(mergeIntervals([])).toEqual([]);
+    });
+
     test('returns null for invalid interval input', () => {
       expect(mergeIntervals([[1, 2], [3]])).toBeNull();
+      expect(mergeIntervals([[1, '2']])).toBeNull();
     });
   });
 
@@ -98,12 +119,17 @@ describe('Array problems', () => {
       expect(findMissingNumber([0, 1])).toBe(2);
     });
 
+    test('handles empty array', () => {
+      expect(findMissingNumber([])).toBe(0);
+    });
+
     test('returns null when values are duplicated', () => {
       expect(findMissingNumber([0, 1, 1])).toBeNull();
     });
 
     test('returns null for invalid input', () => {
       expect(findMissingNumber([0, 1, 5])).toBeNull();
+      expect(findMissingNumber('not-array')).toBeNull();
     });
   });
 
@@ -120,8 +146,13 @@ describe('Array problems', () => {
       expect(rotateArray([1, 2, 3], 3)).toEqual([1, 2, 3]);
     });
 
+    test('returns empty array for empty input', () => {
+      expect(rotateArray([], 2)).toEqual([]);
+    });
+
     test('returns null for invalid input', () => {
       expect(rotateArray([1, 2, '3'], 1)).toBeNull();
+      expect(rotateArray([1, 2, 3], 1.5)).toBeNull();
     });
   });
 });

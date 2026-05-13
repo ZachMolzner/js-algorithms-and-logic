@@ -1,104 +1,95 @@
-# JavaScript Algorithms and Logic
+# JavaScript Algorithms & Data Structures Interview Prep
 
-A portfolio-focused JavaScript repository that shows how I solve coding problems with clear logic, clean structure, and reliable tests.
+A recruiter-friendly JavaScript repository focused on algorithm practice, problem-solving patterns, and test-driven learning.
 
-## Why this project matters
+## Why this repository exists
 
-This project is designed for recruiter and hiring manager review. It highlights:
-- **Problem-solving skills:** breaking problems into simple, testable steps.
-- **Clean code practices:** readable naming, focused functions, and consistent structure.
-- **Testing mindset:** Jest coverage across arrays, strings, logic, objects, and recursion.
+This project is built to show practical interview readiness:
+- I can break problems into clear, readable steps.
+- I can write defensive code that handles edge cases.
+- I can validate behavior with automated tests.
 
-## Why I Built This
+## Tech Stack
 
-I built this project as a junior developer transitioning careers into software engineering. I wanted one place to prove that I can learn quickly, practice consistently, and write code that is easy for teams to read and maintain. Each problem is a small example of how I approach unfamiliar challenges: understand the requirement, write a clear solution, and verify behavior with tests.
+- **Language:** JavaScript (Node.js)
+- **Module System:** CommonJS
+- **Testing:** Jest
+- **Package Manager:** npm
 
-## Topics and problems
-
-### Arrays
-- `two-sum`
-- `max-number`
-- `remove-duplicates`
-- `sum-array`
-- `binary-search`
-- `merge-intervals`
-- `find-missing-number`
-- `rotate-array`
-
-### Strings
-- `reverse-string`
-- `palindrome`
-- `count-vowels`
-- `first-non-repeating-char`
-- `anagram-checker`
-- `longest-substring-without-repeating`
-
-### Logic
-- `fizzbuzz`
-- `grade-calculator`
-- `is-prime`
-- `valid-parentheses`
-
-### Objects
-- `frequency-counter`
-- `group-by-property`
-
-### Recursion
-- `factorial`
-- `fibonacci`
-- `flatten-nested-array`
+## Project Structure
 
 ```text
 src/
   arrays/
-  strings/
   logic/
   objects/
   recursion/
+  strings/
+  sorting/
+  searching/
+  patterns/
+  index.js
 tests/
+  arrays.test.js
+  logic.test.js
+  objects.test.js
+  recursion.test.js
+  strings.test.js
+  sorting.test.js
+  searching.test.js
+  patterns.test.js
 ```
 
-## Quick start
+## Installation
 
 ```bash
 npm install
+```
+
+## Run Tests
+
+```bash
 npm test
 ```
 
-## How this supports interview preparation
+Run tests in watch mode:
 
-This repo gives me repeatable practice with common coding interview patterns (hash maps, two pointers, sliding windows, recursion, and stack-based validation). It also helps me explain tradeoffs clearly, which is just as important in interviews as getting the correct answer.
-
-## Example usage
-
-```js
-const binarySearch = require('./src/arrays/binary-search');
-console.log(binarySearch([1, 3, 5, 7, 9], 7));
-// 3
+```bash
+npm run test:watch
 ```
 
-```js
-const anagramChecker = require('./src/strings/anagram-checker');
-console.log(anagramChecker('Listen', 'Silent'));
-// true
-```
+## Concepts Covered
 
-```js
-const validParentheses = require('./src/logic/valid-parentheses');
-console.log(validParentheses('{[()]}'));
-// true
-```
+- Arrays and index-based operations
+- String processing and character counting
+- Object/hash-map frequency techniques
+- Recursion fundamentals
+- Sorting algorithms (bubble sort, merge sort)
+- Searching algorithms (binary search)
+- Interview patterns:
+  - Two pointers
+  - Sliding window
+- Time/space complexity thinking
 
-```js
-const flattenNestedArray = require('./src/recursion/flatten-nested-array');
-console.log(flattenNestedArray([1, [2, [3, 4], 5], 6]));
-// [1, 2, 3, 4, 5, 6]
-```
+## Roadmap
 
-## Future Additions
+- [x] Arrays, strings, logic, objects, recursion fundamentals
+- [x] Sorting and searching starter set
+- [x] Pattern-based problems (two pointers and sliding window)
+- [ ] Linked lists (insert/delete/reverse)
+- [ ] Trees (BFS and DFS traversal)
+- [ ] Dynamic programming starter set
+- [ ] Graph traversal basics
+- [ ] GitHub Actions CI for test automation
 
-- Binary tree traversal practice (BFS and DFS)
-- Linked list basics (insert, delete, reverse)
-- Dynamic programming starter problems
-- More edge-case focused test scenarios
-- Time and space complexity notes for each solution
+## Interview Practice Approach
+
+For each problem:
+1. Understand inputs, outputs, and constraints.
+2. Write a beginner-friendly implementation.
+3. Add tests for happy paths and edge cases.
+4. Review complexity and possible optimizations.
+
+## Author
+
+Maintained by the repository owner as an interview-prep portfolio project.

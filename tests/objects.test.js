@@ -11,6 +11,17 @@ describe('Object problems', () => {
       });
     });
 
+    test('handles empty arrays', () => {
+      expect(frequencyCounter([])).toEqual({});
+    });
+
+    test('supports mixed primitive values', () => {
+      expect(frequencyCounter([1, '1', true, true])).toEqual({
+        '1': 2,
+        true: 2
+      });
+    });
+
     test('returns null for invalid input', () => {
       expect(frequencyCounter('abc')).toBeNull();
     });
@@ -36,6 +47,15 @@ describe('Object problems', () => {
         x: [items[0]],
         undefined: [items[1]]
       });
+    });
+
+    test('returns empty object for empty array input', () => {
+      expect(groupByProperty([], 'role')).toEqual({});
+    });
+
+    test('returns null for invalid input', () => {
+      expect(groupByProperty([{ role: 'admin' }], '')).toBeNull();
+      expect(groupByProperty([{ role: 'admin' }, null], 'role')).toBeNull();
     });
   });
 });
